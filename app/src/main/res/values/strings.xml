@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyToDoList</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_done">Done</string>
+    <string name="text_description">Description</string>
+    <string name="text_priority">Priority</string>
+    <string name="empty_list">No To Do Added</string>
+
+</resources>
