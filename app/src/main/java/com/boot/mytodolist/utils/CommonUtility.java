@@ -11,9 +11,11 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -77,10 +79,9 @@ public class CommonUtility {
      * Show snakBar
      *
      * @param layout
-     * @param context
      * @param msg
      */
-    public void showSnackbar(RelativeLayout layout, Context context, String msg) {
+    public void showSnackbar(FrameLayout layout, String msg) {
         Snackbar snackbar = Snackbar
                 .make(layout, msg, Snackbar.LENGTH_LONG)
                 .setAction("", new View.OnClickListener() {

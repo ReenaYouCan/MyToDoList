@@ -22,11 +22,11 @@ public class Constants {
             + COLUMN_TODO_TEXT + " TEXT,"
             + COLUMN_TODO_PRIORITY + " INTEGER" + ")";
 
+    //Select all query
     public static String SELECT_QUERY = "SELECT  * FROM " + Constants.TABLE_TODO_LIST;
 
+    //Drop Table on version update
     public static String DROP_QUERY = "DROP TABLE IF EXISTS " + Constants.CREATE_TODO_TABLE;
-
-
 
 
 }

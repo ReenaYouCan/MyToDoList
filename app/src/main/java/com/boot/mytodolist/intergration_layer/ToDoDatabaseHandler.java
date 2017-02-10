@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.boot.mytodolist.model.ToDoModel;
 import com.boot.mytodolist.utils.Constants;
@@ -59,7 +60,7 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
      *
      * @param model
      */
-    synchronized void addTodo(ToDoModel model) {
+    public synchronized void addTodo(ToDoModel model) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -68,6 +69,7 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
         // Inserting Row
         db.insert(Constants.TABLE_TODO_LIST, null, values);
         //2nd argument is String containing nullColumnHack
+        Log.e(getClass().getSimpleName(),"Success");
         db.close(); // Closing database connection
     }
 
@@ -76,8 +78,8 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
      * Get All ToDo List
      * @return
      */
-    public List<ToDoModel> getAllDoTo() {
-        List<ToDoModel> todoList = new ArrayList<>();
+    public ArrayList<ToDoModel> getAllDoTo() {
+        ArrayList<ToDoModel> todoList = new ArrayList<>();
         // Select All Query
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -94,12 +96,11 @@ public class ToDoDatabaseHandler extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         cursor.close();
-        // return contact list
         return todoList;
     }
 
     /**
-     * Delete Single TODO From list
+     * Delete Single TODO from list
      * @param model
      */
     public void deleteTodo(ToDoModel model) {

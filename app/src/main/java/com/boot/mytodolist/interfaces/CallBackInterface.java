@@ -1,15 +1,17 @@
 package com.boot.mytodolist.interfaces;
 
 /**
- * Created by RA on 2/9/2017.
+ * Created by Reena on 2/9/2017.
  */
+
+import com.boot.mytodolist.model.ToDoModel;
 
 /**
  * To get callback from activity to Database changes
  */
 public interface CallBackInterface {
-    //Call when delete from list
-    void onDelete();
-    //call when after adding to list
-    void onAdd();
+    //Call when delete item from list
+    void onDelete(int pos);
+    //call after item adding to list
+    void onAdd(ToDoModel model);
 }
